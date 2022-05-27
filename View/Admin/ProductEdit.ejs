@@ -1,0 +1,72 @@
+<%-include('../Includes/Header.ejs')%>
+<link rel="stylesheet" href="/CSS/style1.css">
+</head>
+<body>
+    <%-include('../Includes/Navigation.ejs')%>
+
+
+
+
+<div >
+    <h1 class="text10">Hello ADMIN, You can Edit Products Here....!</h1>
+</div>
+<div class="container" id="form1">
+   
+        <form action="/postEditedValue" method="post" enctype="multipart/form-data" >
+          
+          <input type="hidden"  name="_csrf" value="<%=csrf_token%>">
+
+          <div class="row">
+            <div class="col-25">
+                <label for="title" class="label1">Product Title</label>
+            </div>
+            <div class="col-75">
+                <input type="text" class="input2" name="title" placeholder="Enter Product Title" value="<%=data.P_name%>">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="price"  class="label1">Product Price</label>
+            </div>
+            <div class="col-75">
+                <input type="number" class="input2" name="price" placeholder="Enter Product Price" value="<%=data.P_price%>">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="des"  class="label1">Product Description</label>
+            </div>
+            <div class="col-75">
+                <input type="text" class="input3" name="des" placeholder="Enter Product Description" value="<%=data.P_des%>">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="img"  class="label1">Product Image</label>
+            </div>
+            <div class="col-75">
+                <input type="file" class="input4" name="productimg" placeholder="Upload Image" value="<%=data.P_img%>">
+                <input type="hidden" name="oldurl" value="<%=data.P_img%>">
+                <img class="imagesmall" src="./../<%=data.P_img%>" alt="">
+            </div>
+          </div>
+
+         
+         
+          <div class="row">
+            <input type="hidden" name="product_id" value="<%=data._id%>">
+           
+          </div>
+          <div class="row">
+            <input type="submit"  class="input1" value="Update Product">
+           
+          </div>
+        </form>
+      </div>
+
+
+
+    <%-include('../Includes/Footer.ejs')%>

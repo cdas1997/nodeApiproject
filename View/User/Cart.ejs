@@ -1,0 +1,86 @@
+<%-include('../Includes/Header.ejs')%>
+<link rel="stylesheet" href="/CSS/cart.css">
+</head>
+<body>
+    <%-include('../Includes/Navigation.ejs')%>
+   
+
+<h1>Shoping Cart</h1>
+ 
+<%if(cartdata.length>0){%>
+        <table >
+         
+            
+               
+      
+            <%for(let x of cartdata){%>    
+          
+           
+         
+
+            <tr>
+                <div class="row" id="cartborder" >
+                    <div class="col" id="proddetails1">
+                      <img src="../../<%=x.Pr_img %>" class="card-img-top" id="proimg" alt="Image">
+                    </div>
+                    <div class="col" id="proddetails2">
+                      <div class="card-body">
+                        <h5 class="card-title"><%=x.Pr_name%></h5>
+                        <p class="card-text"><%=x.Pr_des%></p>
+                        
+                        <h4 class="card-title">Rs.<%=x.Pr_price%></h4>
+                       
+            
+                      
+                        
+                      </div>
+                    </div>
+                 
+
+                    <div class="col" id="proddetails3">
+                  
+                        <form action="/QuantityCartProduct" method="POST">
+                            <input type="hidden"  name="_csrf" value="<%=csrf_token%>">
+                            <input type="hidden"  name="product_id" value="<%=x._id%>">
+                            <!-- <button type="submit">Increase QTY</button> -->
+
+                            <label for="Quantity">Quantity</label>
+
+                       <select >
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                       </select>                       
+                        
+                        </form>
+                </div>
+
+                <div class="col" id="proddetails3">
+                  
+                    <form action="/DeleteCartProduct" method="POST">
+                        <input type="hidden"  name="_csrf" value="<%=csrf_token%>">
+                        <input type="hidden"  name="product_id" value="<%=x._id%>">
+                        <button type="submit">Remove</button>
+                    </form>
+            </div>
+                        
+                             
+                  </div>
+              </tr>
+         
+          
+            
+        
+        <%}%>
+        </table>
+
+        <h2>Total Price:</h2>
+
+       
+
+<%}else{%>
+    <h1>DATA NOT FOUND</h1>
+    <%}%>
+
+    <%-include('../Includes/Footer.ejs')%>

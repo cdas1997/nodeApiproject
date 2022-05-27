@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/CSS/navbar.css">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <div class="container-fluid">
+
+     
+
+      <!-- <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav" id="navdesign">
+
+
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link <%= path === '/' ? 'active' : ' ' %>" href="/">Home</a>
+            
+          </li>
+          <span class="vertical-separator"></span>
+
+     
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link  <%= path === '/viewProduct' ? 'active' : ' ' %>" aria-current="page" href="/viewProduct">User View</a>
+            
+          </li>
+          <span class="vertical-separator"></span>
+
+          <%if(isAuthenticated){%>
+          <li class="nav-item">
+            <a  id="nav-link1" class="nav-link <%= path === '/addproduct' ? 'active' : ' ' %>" href="/addproduct">Add Products</a>
+          </li>
+          <span class="vertical-separator"></span>
+        
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link <%= path === '/Product' ? 'active' : ' ' %>" href="/Product">Products</a>
+          </li>
+          <span class="vertical-separator"></span>
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link <%= path === '/cart' ? 'active' : ' ' %>" href="/cart">Cart</a>
+          </li>
+          <span class="vertical-separator"></span>
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link" href="/Logout">Logout</a>
+          </li>
+         
+          <%}%>
+
+          <%if(!isAuthenticated){%>
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link <%= path === '/Registration' ? 'active' : ' ' %>" href="/Registration">Registration</a>
+          </li>
+          <span class="vertical-separator"></span>
+          <li class="nav-item">
+            <a id="nav-link1" class="nav-link <%= path === '/Login' ? 'active' : ' ' %>"  href="/Login">Login</a>
+          </li>
+          <%}%>
+          
+        </ul>
+      </div>
+    
+
+    </div>
+  </nav>
