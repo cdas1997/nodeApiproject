@@ -129,7 +129,9 @@ appServer.use(admin_routing);
 appServer.use(user_routing);
 appServer.use(auth_routing);
 appServer.use(cart_routing);
-
+appServer.use((req,res)=>{
+    res.send('<h1>not found</h1>');
+})
 
 
 
